@@ -88,7 +88,7 @@ export default function Navbar() {
                   href="/"
                   className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md  bg-success text-base-100 hover:bg-transparent hover:text-success hover:border-success btn"
                 >
-                  Log in
+                  Log Out
                 </button>
               </div>
             </nav>

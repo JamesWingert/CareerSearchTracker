@@ -12,7 +12,7 @@ module.exports = {
           ...require('daisyui/src/colors/themes')['[data-theme=winter]'],
           // info: '#79C0FF',
           // primary: '#334257',
-          // secondary: '#548CA8',
+          warning: '#548CA8',
           // 'base-100': '#FFFFFF',
           // 'base-300': '#FBFBFB',
           // neutral: '#222831',
