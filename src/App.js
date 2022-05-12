@@ -1,24 +1,21 @@
-import logo from './logo.svg';
 import './App.css';
+import Layout from './components/Layout';
+import { Home, Error } from './pages';
+import { Theme } from 'react-daisyui';
+
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Theme dataTheme="cupcake" className="bg-base-300 mx-auto h-screen">
+      <Layout />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/home" element={<Home />} />
+          <Route path="*" element={<Error />} />
+        </Routes>
+      </BrowserRouter>
+    </Theme>
   );
 }
 
