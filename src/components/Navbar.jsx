@@ -7,6 +7,7 @@ import { ImProfile } from 'react-icons/im';
 import { Fragment } from 'react';
 import { FaSun, FaMoon } from 'react-icons/fa';
 import { useTheme } from 'react-daisyui';
+import logo from '../assets/images/logo.png';
 
 import React from 'react';
 const navigation = [
@@ -32,11 +33,7 @@ export default function Navbar() {
                 <div className="flex items-center justify-between w-full md:w-auto">
                   <a href="/">
                     <span className="sr-only">Workflow</span>
-                    <img
-                      className="h-8 w-auto sm:h-10"
-                      src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg"
-                      alt=""
-                    />
+                    <img className="h-8 w-auto sm:h-10" src={logo} alt="" />
                   </a>
                   <div className="-mr-2 flex items-center md:hidden">
                     <Popover.Button className="bg-base-100 rounded-md p-2 inline-flex items-center justify-center  hover:bg-gray-700 focus:outline-none focus:ring-2 focus-ring-inset focus:ring-white">

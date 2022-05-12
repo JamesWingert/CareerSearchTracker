@@ -1,4 +1,5 @@
 import Landing from './Landing';
 import Error from './Error';
 
-export { Landing, Error };
+import ProtectedRoute from './ProtectedRoute';
+export { Landing, Error, ProtectedRoute };
