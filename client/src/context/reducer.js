@@ -55,7 +55,6 @@ const reducer = (state, action) => {
       isLoading: true,
       token: action.payload.token,
       user: action.payload.user,
-      userLocation: action.payload.location,
       jobLocation: action.payload.location,
       showAlert: true,
       alertType: 'success',
@@ -78,7 +77,6 @@ const reducer = (state, action) => {
       user: null,
       token: null,
       jobLocation: '',
-      userLocation: '',
     };
   }
   if (action.type === UPDATE_USER_BEGIN) {
@@ -90,7 +88,6 @@ const reducer = (state, action) => {
       isLoading: false,
       token: action.payload.token,
       user: action.payload.user,
-      userLocation: action.payload.location,
       jobLocation: action.payload.location,
       showAlert: true,
       alertType: 'success',
@@ -120,7 +117,7 @@ const reducer = (state, action) => {
       position: '',
       company: '',
       languages: '',
-      jobLocation: state.userLocation,
+      jobLocation: '',
       jobType: 'full-time',
       status: 'pending',
     };

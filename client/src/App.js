@@ -8,7 +8,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 function App() {
   return (
-    <Theme dataTheme="cupcake" className="bg-base-300 mx-auto h-screen">
+    <Theme dataTheme="winter" className="bg-base-300 mx-auto h-fill">
       <BrowserRouter>
         <Routes>
           <Route

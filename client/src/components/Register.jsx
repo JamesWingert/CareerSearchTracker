@@ -149,7 +149,7 @@ export default function Register() {
                   required
                   className="block w-full shadow-sm focus:ring-success focus:border-success sm:text-sm border-gray-300 rounded-md"
                   value={values.email}
-                  handleChange={handleChange}
+                  onChange={handleChange}
                 />
               </div>
 
@@ -166,7 +166,7 @@ export default function Register() {
                   required
                   className="block w-full shadow-sm focus:ring-success focus:border-success sm:text-sm border-gray-300 rounded-md"
                   value={values.password}
-                  handleChange={handleChange}
+                  onChange={handleChange}
                 />
               </div>
 
@@ -178,7 +178,7 @@ export default function Register() {
                 >
                   {values.isMember ? 'Login ' : 'Register'}
                 </button>
-                <p className='mt-4'>
+                <p className="mt-4">
                   {values.isMember
                     ? 'Not a member yet? '
                     : 'Already a member? '}

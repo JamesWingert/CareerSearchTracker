@@ -32,7 +32,6 @@ import {
 
 const token = localStorage.getItem('token');
 const user = localStorage.getItem('user');
-const userLocation = localStorage.getItem('location');
 
 const initialState = {
   isLoading: false,
@@ -41,13 +40,12 @@ const initialState = {
   alertType: '',
   user: user ? JSON.parse(user) : null,
   token: token,
-  userLocation: userLocation || '',
   isEditing: false,
   editJobId: '',
   languages: [],
   position: '',
   company: '',
-  jobLocation: userLocation || '',
+  jobLocation: '',
   jobTypeOptions: ['full-time', 'part-time', 'remote', 'internship'],
   jobType: 'full-time',
   statusOptions: ['interview', 'declined', 'pending'],
@@ -111,16 +109,14 @@ const AppProvider = ({ children }) => {
     }, 3000);
   };
 
-  const addUserToLocalStorage = ({ user, token, location }) => {
+  const addUserToLocalStorage = ({ user, token }) => {
     localStorage.setItem('user', JSON.stringify(user));
     localStorage.setItem('token', token);
-    localStorage.setItem('location', location);
   };
 
   const removeUserFromLocalStorage = () => {
     localStorage.removeItem('token');
     localStorage.removeItem('user');
-    localStorage.removeItem('location');
   };
 
   const setupUser = async ({ currentUser, endPoint, alertText }) => {
@@ -131,12 +127,12 @@ const AppProvider = ({ children }) => {
         currentUser
       );
 
-      const { user, token, location } = data;
+      const { user, token } = data;
       dispatch({
         type: SETUP_USER_SUCCESS,
-        payload: { user, token, location, alertText },
+        payload: { user, token, alertText },
       });
-      addUserToLocalStorage({ user, token, location });
+      addUserToLocalStorage({ user, token });
     } catch (error) {
       dispatch({
         type: SETUP_USER_ERROR,
@@ -155,13 +151,13 @@ const AppProvider = ({ children }) => {
     try {
       const { data } = await authFetch.patch('/auth/updateUser', currentUser);
 
-      const { user, location, token } = data;
+      const { user, token } = data;
 
       dispatch({
         type: UPDATE_USER_SUCCESS,
-        payload: { user, location, token },
+        payload: { user, token },
       });
-      addUserToLocalStorage({ user, location, token });
+      addUserToLocalStorage({ user, token });
     } catch (error) {
       if (error.response.status !== 401) {
         dispatch({

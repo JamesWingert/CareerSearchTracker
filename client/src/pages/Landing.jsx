@@ -3,16 +3,16 @@ import Register from '../components/Register';
 
 export default function Landing() {
   return (
-    <div className="container mx-auto bg-base-100 pt-8 pb-20  h-full">
+    <div className="container mx-auto bg-base-100 pt-8 pb-20  h-fill">
       <LandingNav />
       <div className="px-4 sm:px-6 sm:text-center md:max-w-6xl md:mx-auto lg:col-span-6 lg:text-left lg:flex lg:items-center mt-32">
         <div className="lg:grid lg:grid-cols-12 lg:gap-8 items-center justify-center">
           <div className="px-4 sm:px-6 sm:text-center md:max-w-2xl md:mx-auto lg:col-span-6 lg:text-left lg:flex ">
             <div>
-              <h1 className="text-4xl tracking-tight font-extrabold  sm:leading-none lg:text-5xl xl:text-6xl text-center items-center md:block text-error">
+              <h1 className=" tracking-tight font-extrabold  sm:leading-none text-5xl xl:text-6xl text-center items-center md:block text-error">
                 Apply more
               </h1>
-              <h1 className="text-4xl tracking-tight font-extrabold  sm:leading-none lg:text-5xl xl:text-6xl text-center items-center md:block">
+              <h1 className=" tracking-tight font-extrabold  sm:leading-none text-5xl xl:text-6xl text-center items-center md:block">
                 track less.
               </h1>
               <p className=" md:block text-2xl mt-10 ">
