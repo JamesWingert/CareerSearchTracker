@@ -42,7 +42,7 @@ const initialState = {
   token: token,
   isEditing: false,
   editJobId: '',
-  languages: [],
+  languages: '',
   position: '',
   company: '',
   jobLocation: '',

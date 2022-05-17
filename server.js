@@ -4,6 +4,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 import 'express-async-errors';
 import morgan from 'morgan';
+import path from 'path';
 
 import { dirname } from 'path';
 import { fileURLToPath } from 'url';
@@ -19,7 +20,7 @@ import jobsRouter from './routes/jobsRoutes.js';
 
 import notFoundMiddleware from './middleware/not-found.js';
 import errorHandlerMiddleware from './middleware/error-handler.js';
-import authenticateUser from './middleware/auth.js';
+import auth from './middleware/auth.js';
 
 if (process.env.NODE_ENV !== 'production') {
   app.use(morgan('dev'));
@@ -27,7 +28,7 @@ if (process.env.NODE_ENV !== 'production') {
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
-app.use(express.static(path.resolve(__dirname, './client/build')));
+// app.use(express.static(path.resolve(__dirname, './client/build')));
 
 app.use(express.json());
 app.use(helmet());
@@ -35,11 +36,11 @@ app.use(xss());
 app.use(mongoSanitize());
 
 app.use('/api/v1/auth', authRouter);
-app.use('/api/v1/jobs', authenticateUser, jobsRouter);
+app.use('/api/v1/jobs', auth, jobsRouter);
 
-app.get('*', (req, res) => {
-  res.sendFile(path.resolve(__dirname, './client/build', 'index.html'));
-});
+// app.get('*', (req, res) => {
+//   res.sendFile(path.resolve(__dirname, './client/build', 'index.html'));
+// });
 
 app.use(notFoundMiddleware);
 app.use(errorHandlerMiddleware);
