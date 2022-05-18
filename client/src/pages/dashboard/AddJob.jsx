@@ -59,7 +59,8 @@ const AddJob = () => {
             value={company}
             onChange={handleJobInput}
           />
-          {/* position */}
+
+          {/* positionn */}
           <label htmlFor="position" className="text-xl">
             Position
           </label>
