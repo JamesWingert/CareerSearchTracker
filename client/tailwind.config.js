@@ -1,18 +1,18 @@
 module.exports = {
-  content: ['./src/**/*.{js,jsx,ts,tsx}', './index.html'],
+  content: ["./src/**/*.{js,jsx,ts,tsx}", "./index.html"],
   theme: {
     extend: {},
   },
-  plugins: [require('@tailwindcss/forms'), require('daisyui')],
+  plugins: [require("@tailwindcss/forms"), require("daisyui")],
   daisyui: {
     styled: true,
     themes: [
       {
         winter: {
-          ...require('daisyui/src/colors/themes')['[data-theme=winter]'],
+          ...require("daisyui/src/colors/themes")["[data-theme=winter]"],
           // info: '#79C0FF',
           // primary: '#334257',
-          warning: '#548CA8',
+          warning: "#548CA8",
           // 'base-100': '#FFFFFF',
           // 'base-300': '#FBFBFB',
           // neutral: '#222831',
@@ -21,12 +21,12 @@ module.exports = {
           // 'neutral-content': '#dc6972',
         },
         business: {
-          ...require('daisyui/src/colors/themes')['[data-theme=business]'],
+          ...require("daisyui/src/colors/themes")["[data-theme=business]"],
           // neutral: '#eeeeee',
           // ,
           // success: '#7BC284',
           // secondary: '#79C0FF',
-          primary: '#f6f8fa',
+          primary: "#f6f8fa",
           // 'neutral-content': '#dc6972',
           // 'base-100': '#0d1118',
           // 'base-300': '#161c22',
@@ -38,6 +38,6 @@ module.exports = {
     utils: true,
     logs: true,
     rtl: false,
-    prefix: '',
+    prefix: "",
   },
 };

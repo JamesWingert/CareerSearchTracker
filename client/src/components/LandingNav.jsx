@@ -1,9 +1,9 @@
-import logo from '../assets/images/logo.png';
-import { FaSun, FaMoon } from 'react-icons/fa';
-import { useTheme } from 'react-daisyui';
+import logo from "../assets/images/logo.png";
+import { FaSun, FaMoon } from "react-icons/fa";
+import { useTheme } from "react-daisyui";
 
 export default function LandingNav() {
-  const { theme, setTheme } = useTheme('');
+  const { theme, setTheme } = useTheme("");
   return (
     <>
       <nav
@@ -16,20 +16,20 @@ export default function LandingNav() {
               <img src={logo} alt="logo" className="h-12 w-auto sm:h-16" />
             </a>
           </div>
-        </div>{' '}
+        </div>{" "}
         <label className="swap swap-rotate ">
           <input className="hidden" type="checkbox" id="swap" />
-          {theme === 'business' ? (
+          {theme === "business" ? (
             <FaSun
               onClick={() =>
-                setTheme(theme === 'business' ? 'winter' : 'business')
+                setTheme(theme === "business" ? "winter" : "business")
               }
               className="text-accent dark:text-accent text-4xl cursor-pointer swap-on"
             />
           ) : (
             <FaMoon
               onClick={() =>
-                setTheme(theme === 'business' ? 'winter' : 'business')
+                setTheme(theme === "business" ? "winter" : "business")
               }
               className="text-success text-4xl cursor-pointer swap-off"
             />

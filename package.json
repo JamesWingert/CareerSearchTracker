@@ -12,7 +12,10 @@
     "heroku-postbuild": "npm run install-client && npm run build-client",
     "server": "nodemon server --ignore client",
     "client": "npm start --prefix client",
-    "start": "concurrently --kill-others-on-fail \" npm run server\" \" npm run client\""
+    "start": "concurrently --kill-others-on-fail \" npm run server\" \" npm run client\"",
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix .",
+    "format": "prettier --write \"**/*.+(js|jsx|json|css|md)\""
   },
   "repository": {
     "type": "git",
@@ -25,6 +28,8 @@
   },
   "devDependencies": {
     "concurrently": "^7.2.0",
+    "eslint": "^8.15.0",
+    "eslint-plugin-react": "^7.29.4",
     "nodemon": "^2.0.16"
   },
   "dependencies": {

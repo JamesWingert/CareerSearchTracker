@@ -1,14 +1,14 @@
-import Job from '../models/Job.js';
-import { StatusCodes } from 'http-status-codes';
-import mongoose from 'mongoose';
-import moment from 'moment';
-import checkPermissions from '../utils/checkPermissions.js';
+import Job from "../models/Job.js";
+import { StatusCodes } from "http-status-codes";
+import mongoose from "mongoose";
+import moment from "moment";
+import checkPermissions from "../utils/checkPermissions.js";
 //new job
 const createJob = async (req, res) => {
   const { position, company } = req.body;
 
   if (!position || !company) {
-    res.status(400).send('All input is required');
+    res.status(400).send("All input is required");
   }
   req.body.createdBy = req.user.userId;
   const job = await Job.create(req.body);
@@ -23,29 +23,29 @@ const getAllJobs = async (req, res) => {
     createdBy: req.user.userId,
   };
 
-  if (status && status !== 'all') {
+  if (status && status !== "all") {
     queryObject.status = status;
   }
-  if (jobType && jobType !== 'all') {
+  if (jobType && jobType !== "all") {
     queryObject.jobType = jobType;
   }
   if (search) {
-    queryObject.position = { $regex: search, $options: 'i' };
+    queryObject.position = { $regex: search, $options: "i" };
   }
 
   let result = Job.find(queryObject);
 
-  if (sort === 'latest') {
-    result = result.sort('-createdAt');
+  if (sort === "latest") {
+    result = result.sort("-createdAt");
   }
-  if (sort === 'oldest') {
-    result = result.sort('createdAt');
+  if (sort === "oldest") {
+    result = result.sort("createdAt");
   }
-  if (sort === 'a-z') {
-    result = result.sort('position');
+  if (sort === "a-z") {
+    result = result.sort("position");
   }
-  if (sort === 'z-a') {
-    result = result.sort('-position');
+  if (sort === "z-a") {
+    result = result.sort("-position");
   }
 
   const page = Number(req.query.page) || 1;
@@ -68,7 +68,7 @@ const updateJob = async (req, res) => {
   const { company, position } = req.body;
 
   if (!position || !company) {
-    res.status(400).send('All input is required');
+    res.status(400).send("All input is required");
   }
   const job = await Job.findOne({ _id: jobId });
 
@@ -101,7 +101,7 @@ const deleteJob = async (req, res) => {
 
   await job.remove();
 
-  res.status(StatusCodes.OK).json({ msg: 'Success! Job removed' });
+  res.status(StatusCodes.OK).json({ msg: "Success! Job removed" });
 };
 
 //show job application statsitics
@@ -109,7 +109,7 @@ const showStats = async (req, res) => {
   //show jobs created by user and group them by status
   let stats = await Job.aggregate([
     { $match: { createdBy: mongoose.Types.ObjectId(req.user.userId) } },
-    { $group: { _id: '$status', count: { $sum: 1 } } },
+    { $group: { _id: "$status", count: { $sum: 1 } } },
   ]);
 
   //reduce the result to an object, the key is the jobs status and the value is the number of jobs with that status.
@@ -129,11 +129,11 @@ const showStats = async (req, res) => {
     { $match: { createdBy: mongoose.Types.ObjectId(req.user.userId) } },
     {
       $group: {
-        _id: { year: { $year: '$createdAt' }, month: { $month: '$createdAt' } },
+        _id: { year: { $year: "$createdAt" }, month: { $month: "$createdAt" } },
         count: { $sum: 1 },
       },
     },
-    { $sort: { '_id.year': -1, '_id.month': -1 } },
+    { $sort: { "_id.year": -1, "_id.month": -1 } },
     { $limit: 6 },
   ]);
   monthlyApplications = monthlyApplications
@@ -145,7 +145,7 @@ const showStats = async (req, res) => {
       const date = moment()
         .month(month - 1)
         .year(year)
-        .format('MMM Y');
+        .format("MMM Y");
       return { date, count };
     })
     .reverse();

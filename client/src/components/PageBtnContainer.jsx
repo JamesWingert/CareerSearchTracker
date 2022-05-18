@@ -1,5 +1,5 @@
-import { useAppContext } from '../context/appContext';
-import { HiChevronDoubleLeft, HiChevronDoubleRight } from 'react-icons/hi';
+import { useAppContext } from "../context/appContext";
+import { HiChevronDoubleLeft, HiChevronDoubleRight } from "react-icons/hi";
 
 const PageBtnContainer = () => {
   const { numOfPages, page, changePage } = useAppContext();
@@ -23,16 +23,16 @@ const PageBtnContainer = () => {
   };
   return (
     <>
-      <button className='prev-btn' onClick={prevPage}>
+      <button className="prev-btn" onClick={prevPage}>
         <HiChevronDoubleLeft />
         prev
       </button>
-      <div className='btn-container'>
+      <div className="btn-container">
         {pages.map((pageNumber) => {
           return (
             <button
-              type='button'
-              className={pageNumber === page ? 'pageBtn active' : 'pageBtn'}
+              type="button"
+              className={pageNumber === page ? "pageBtn active" : "pageBtn"}
               key={pageNumber}
               onClick={() => changePage(pageNumber)}
             >
@@ -41,7 +41,7 @@ const PageBtnContainer = () => {
           );
         })}
       </div>
-      <button className='next-btn' onClick={nextPage}>
+      <button className="next-btn" onClick={nextPage}>
         next
         <HiChevronDoubleRight />
       </button>

@@ -1,5 +1,5 @@
-import { Outlet } from 'react-router-dom';
-import Navbar from '../../components/Navbar';
+import { Outlet } from "react-router-dom";
+import Navbar from "../../components/Navbar";
 const Layout = () => {
   return (
     <div className="bg-base-300">
@@ -9,7 +9,6 @@ const Layout = () => {
           <div>
             <Outlet />
           </div>
-         
         </div>
       </main>
     </div>

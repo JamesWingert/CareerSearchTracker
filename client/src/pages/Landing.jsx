@@ -1,5 +1,5 @@
-import LandingNav from '../components/LandingNav';
-import Register from '../components/Register';
+import LandingNav from "../components/LandingNav";
+import Register from "../components/Register";
 
 export default function Landing() {
   return (

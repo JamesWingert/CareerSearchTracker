@@ -1,5 +1,5 @@
-import { Alert } from '../../components';
-import { useAppContext } from '../../context/appContext';
+import { Alert } from "../../components";
+import { useAppContext } from "../../context/appContext";
 
 const AddJob = () => {
   const {
@@ -39,41 +39,41 @@ const AddJob = () => {
   };
 
   return (
-    <div className='container mx-auto bg-base-100 h-[88.5vh] '>
+    <div className="container mx-auto bg-base-100 h-[88.5vh] ">
       <form>
-        <h1 className='text-center text-4xl mb-10 text-error'>
-          {isEditing ? 'Edit Job' : 'Add Job'}
+        <h1 className="text-center text-4xl mb-10 text-error">
+          {isEditing ? "Edit Job" : "Add Job"}
         </h1>
         {showAlert && <Alert />}
         <div>
           {/* position */}
           <input
-            type='text'
-            id='position'
-            placeholder='Position'
-            name='position'
+            type="text"
+            id="position"
+            placeholder="Position"
+            name="position"
             value={position}
             onChange={handleJobInput}
           />
           {/* company */}
           <input
-            type='text'
-            name='company'
-            placeholder='Company'
+            type="text"
+            name="company"
+            placeholder="Company"
             value={company}
             onChange={handleJobInput}
           />
           {/* location */}
           <input
-            type='text'
-            labelText='job location'
-            name='jobLocation'
+            type="text"
+            labelText="job location"
+            name="jobLocation"
             value={jobLocation}
-            placeholder='Location'
+            placeholder="Location"
             onChange={handleJobInput}
           />
-          {/* job status */} <label htmlFor='status'>Status</label>
-          <select name='status' value={status} onChange={handleJobInput}>
+          {/* job status */} <label htmlFor="status">Status</label>
+          <select name="status" value={status} onChange={handleJobInput}>
             {statusOptions.map((status, index) => {
               return (
                 <option key={index} value={status}>
@@ -82,8 +82,8 @@ const AddJob = () => {
               );
             })}
           </select>
-          {/* job type */} <label htmlFor='jobType'>Job Type</label>
-          <select name='jobType' value={jobType} onChange={handleJobInput}>
+          {/* job type */} <label htmlFor="jobType">Job Type</label>
+          <select name="jobType" value={jobType} onChange={handleJobInput}>
             {jobTypeOptions.map((jobType, index) => {
               return (
                 <option key={index} value={jobType}>
@@ -93,16 +93,16 @@ const AddJob = () => {
             })}
           </select>
           {/* btn container */}
-          <div className='btn'>
+          <div className="btn">
             <button
-              type='submit'
-              className='btn btn-block submit-btn'
+              type="submit"
+              className="btn btn-block submit-btn"
               onClick={handleSubmit}
             >
               submit
             </button>
             <button
-              className='btn'
+              className="btn"
               onClick={(e) => {
                 e.preventDefault();
                 clearValues();

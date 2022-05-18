@@ -1,9 +1,9 @@
-import { useAppContext } from '../context/appContext';
-import { useEffect } from 'react';
-import Loading from './Loading';
-import Job from './Job';
+import { useAppContext } from "../context/appContext";
+import { useEffect } from "react";
+import Loading from "./Loading";
+import Job from "./Job";
 
-import PageBtnContainer from './PageBtnContainer';
+import PageBtnContainer from "./PageBtnContainer";
 
 const Jobs = () => {
   const {
@@ -36,10 +36,10 @@ const Jobs = () => {
 
   return (
     <>
-      <h5 className='text-xl font-semibold text-success'>
-        {totalJobs} job{jobs.length > 1 && 's'} found
+      <h5 className="text-xl font-semibold text-success">
+        {totalJobs} job{jobs.length > 1 && "s"} found
       </h5>
-      <div className='flex-col'>
+      <div className="flex-col">
         {jobs.map((job) => {
           return <Job key={job._id} {...job} />;
         })}

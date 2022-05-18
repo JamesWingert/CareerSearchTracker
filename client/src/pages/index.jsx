@@ -1,5 +1,5 @@
-import Landing from './Landing';
-import Error from './Error';
+import Landing from "./Landing";
+import Error from "./Error";
 
-import ProtectedRoute from './ProtectedRoute';
+import ProtectedRoute from "./ProtectedRoute";
 export { Landing, Error, ProtectedRoute };

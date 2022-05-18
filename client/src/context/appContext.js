@@ -1,7 +1,7 @@
-import React, { useReducer, useContext } from 'react';
+import React, { useReducer, useContext } from "react";
 
-import reducer from './reducer';
-import axios from 'axios';
+import reducer from "./reducer";
+import axios from "axios";
 import {
   DISPLAY_ALERT,
   CLEAR_ALERT,
@@ -28,39 +28,39 @@ import {
   SHOW_STATS_SUCCESS,
   CLEAR_FILTERS,
   CHANGE_PAGE,
-} from './actions';
+} from "./actions";
 
-const token = localStorage.getItem('token');
-const user = localStorage.getItem('user');
+const token = localStorage.getItem("token");
+const user = localStorage.getItem("user");
 
 const initialState = {
   isLoading: false,
   showAlert: false,
-  alertText: '',
-  alertType: '',
+  alertText: "",
+  alertType: "",
   user: user ? JSON.parse(user) : null,
   token: token,
   isEditing: false,
-  editJobId: '',
-  languages: '',
-  position: '',
-  company: '',
-  jobLocation: '',
-  jobTypeOptions: ['full-time', 'part-time', 'remote', 'internship'],
-  jobType: 'full-time',
-  statusOptions: ['interview', 'declined', 'pending'],
-  status: 'pending',
+  editJobId: "",
+  languages: "",
+  position: "",
+  company: "",
+  jobLocation: "",
+  jobTypeOptions: ["full-time", "part-time", "remote", "internship"],
+  jobType: "full-time",
+  statusOptions: ["interview", "declined", "pending"],
+  status: "pending",
   jobs: [],
   totalJobs: 0,
   numOfPages: 1,
   page: 1,
   stats: {},
   monthlyApplications: [],
-  search: '',
-  searchStatus: 'all',
-  searchType: 'all',
-  sort: 'latest',
-  sortOptions: ['latest', 'oldest', 'a-z', 'z-a'],
+  search: "",
+  searchStatus: "all",
+  searchType: "all",
+  sort: "latest",
+  sortOptions: ["latest", "oldest", "a-z", "z-a"],
 };
 
 const AppContext = React.createContext();
@@ -70,13 +70,13 @@ const AppProvider = ({ children }) => {
 
   // axios
   const authFetch = axios.create({
-    baseURL: '/api/v1',
+    baseURL: "/api/v1",
   });
   // request
 
   authFetch.interceptors.request.use(
     (config) => {
-      config.headers.common['Authorization'] = `Bearer ${state.token}`;
+      config.headers.common["Authorization"] = `Bearer ${state.token}`;
       return config;
     },
     (error) => {
@@ -110,13 +110,13 @@ const AppProvider = ({ children }) => {
   };
 
   const addUserToLocalStorage = ({ user, token }) => {
-    localStorage.setItem('user', JSON.stringify(user));
-    localStorage.setItem('token', token);
+    localStorage.setItem("user", JSON.stringify(user));
+    localStorage.setItem("token", token);
   };
 
   const removeUserFromLocalStorage = () => {
-    localStorage.removeItem('token');
-    localStorage.removeItem('user');
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
   };
 
   const setupUser = async ({ currentUser, endPoint, alertText }) => {
@@ -149,7 +149,7 @@ const AppProvider = ({ children }) => {
   const updateUser = async (currentUser) => {
     dispatch({ type: UPDATE_USER_BEGIN });
     try {
-      const { data } = await authFetch.patch('/auth/updateUser', currentUser);
+      const { data } = await authFetch.patch("/auth/updateUser", currentUser);
 
       const { user, token } = data;
 
@@ -180,7 +180,7 @@ const AppProvider = ({ children }) => {
     try {
       const { position, company, jobLocation, jobType, languages, status } =
         state;
-      await authFetch.post('/jobs', {
+      await authFetch.post("/jobs", {
         position,
         company,
         jobLocation,
@@ -265,7 +265,7 @@ const AppProvider = ({ children }) => {
   const showStats = async () => {
     dispatch({ type: SHOW_STATS_BEGIN });
     try {
-      const { data } = await authFetch('/jobs/stats');
+      const { data } = await authFetch("/jobs/stats");
       dispatch({
         type: SHOW_STATS_SUCCESS,
         payload: {

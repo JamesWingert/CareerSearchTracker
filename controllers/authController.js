@@ -1,16 +1,15 @@
-import User from '../models/User.js';
-import { StatusCodes } from 'http-status-codes';
-
+import User from "../models/User.js";
+import { StatusCodes } from "http-status-codes";
 
 const register = async (req, res) => {
   const { email, password } = req.body;
 
   if (!email || !password) {
-    res.status(400).send('All input is required');
+    res.status(400).send("All input is required");
   }
   const userAlreadyExists = await User.findOne({ email });
   if (userAlreadyExists) {
-    return res.status(409).send('User Already Exists. Please Login');
+    return res.status(409).send("User Already Exists. Please Login");
   }
   const user = await User.create({ email, password });
 
@@ -26,13 +25,13 @@ const register = async (req, res) => {
 const login = async (req, res) => {
   const { email, password } = req.body;
   if (!email || !password) {
-    res.status(400).send('All input is required');
+    res.status(400).send("All input is required");
   }
 
-  const user = await User.findOne({ email }).select('+password');
+  const user = await User.findOne({ email }).select("+password");
   const isPasswordCorrect = await user.comparePassword(password);
   if (!email || !isPasswordCorrect) {
-    return res.status(400).send('Invalid Credentials');
+    return res.status(400).send("Invalid Credentials");
   }
 
   const token = user.createJWT();
