@@ -152,7 +152,7 @@ export default function Register() {
                   placeholder='Password'
                   autoComplete='current-password'
                   required
-                  className='block w-full shadow-sm focus:ring-success focus:border-success sm:text-sm border-gray-300 rounded-md'
+                  className='text-neutral block w-full shadow-sm focus:ring-success focus:border-success sm:text-sm border-gray-300 rounded-md'
                   value={values.password}
                   onChange={handleChange}
                 />
