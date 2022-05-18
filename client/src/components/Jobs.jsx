@@ -67,6 +67,12 @@ const Jobs = () => {
                     className="px-6 py-3 text-left text-xs font-medium  uppercase text-neutral tracking-wider"
                   >
                     Technologies
+                  </th>{" "}
+                  <th
+                    scope="col"
+                    className="px-6 py-3 text-left text-xs font-medium  uppercase text-neutral tracking-wider"
+                  >
+                    Link
                   </th>
                   <th
                     scope="col"
@@ -112,6 +118,16 @@ const Jobs = () => {
                       </td>
                       <td className="px-6 py-4  text-sm text-neutral">
                         {job.languages}
+                      </td>
+                      <td className="px-6 py-4  text-right text-sm font-medium">
+                        <a
+                          target="_blank"
+                          href={job.href}
+                          className="text-indigo-600 hover:text-indigo-900"
+                          rel="noreferrer"
+                        >
+                          Link
+                        </a>
                       </td>
                       <td className="px-6 py-4  text-sm text-neutral">
                         {job.jobLocation}

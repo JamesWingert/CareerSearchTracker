@@ -1,10 +1,10 @@
-import { useAppContext } from '../context/appContext';
-import { useNavigate } from 'react-router-dom';
-import { useState, useEffect } from 'react';
-import Alert from './Alert';
+import { useAppContext } from "../context/appContext";
+import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+import Alert from "./Alert";
 const initialState = {
-  email: '',
-  password: '',
+  email: "",
+  password: "",
   isMember: true,
 };
 export default function Register() {
@@ -32,14 +32,14 @@ export default function Register() {
     if (values.isMember) {
       setupUser({
         currentUser,
-        endPoint: 'login',
-        alertText: 'Login Successful! Redirecting...',
+        endPoint: "login",
+        alertText: "Login Successful! Redirecting...",
       });
     } else {
       setupUser({
         currentUser,
-        endPoint: 'register',
-        alertText: 'Created successfully! Redirecting...',
+        endPoint: "register",
+        alertText: "Created successfully! Redirecting...",
       });
     }
   };
@@ -47,18 +47,18 @@ export default function Register() {
   useEffect(() => {
     if (user) {
       setTimeout(() => {
-        navigate('/');
+        navigate("/");
       }, 3000);
     }
   }, [user, navigate]);
 
   return (
-    <div className='mt-16 sm:mt-24 lg:mt-0 lg:col-span-6 '>
-      <div className='bg-white sm:max-w-md sm:w-full sm:mx-auto sm:rounded-lg sm:overflow-hidden border-2 border-default shadow-xl'>
-        <div className='px-4 py-8 sm:px-10'>
-          <div className='justify-center text-2xl text-neutral text-center'>
-            {values.isMember ? 'Login ' : 'Register'} {showAlert && <Alert />}
-            <p className='text-3xl text-center text-success font-semibold tracking-wide uppercase mb-3 text-'></p>
+    <div className="mt-16 sm:mt-24 lg:mt-0 lg:col-span-6 ">
+      <div className="bg-white sm:max-w-md sm:w-full sm:mx-auto sm:rounded-lg sm:overflow-hidden border-2 border-default shadow-xl">
+        <div className="px-4 py-8 sm:px-10">
+          <div className="justify-center text-2xl text-neutral text-center">
+            {values.isMember ? "Login " : "Register"} {showAlert && <Alert />}
+            <p className="text-3xl text-center text-success font-semibold tracking-wide uppercase mb-3 text-"></p>
             {/* <div className='mt-1 grid '> */}
             {/* grid-cols-3 gap-3 */}
             {/* <div>
@@ -111,48 +111,48 @@ export default function Register() {
               </div> */}
             {/* </div> */}
           </div>
-          <div className='mt-6 relative mb-6'>
+          <div className="mt-6 relative mb-6">
             <div
-              className='absolute inset-0 flex items-center'
-              aria-hidden='true'
+              className="absolute inset-0 flex items-center"
+              aria-hidden="true"
             >
-              <div className='w-full border-t border-gray-300' />
+              <div className="w-full border-t border-gray-300" />
             </div>
             {/* <div className="relative flex justify-center text-sm">
               <span className="px-2 bg-white text-gray-500">Or</span>
             </div> */}
           </div>
-          <div className='mt-6'>
-            <form className='space-y-6' onSubmit={onSubmit}>
+          <div className="mt-6">
+            <form className="space-y-6" onSubmit={onSubmit}>
               <div>
-                <label htmlFor='email' className='sr-only'>
+                <label htmlFor="email" className="sr-only">
                   Email
                 </label>
                 <input
-                  type='text'
-                  name='email'
-                  id='email'
-                  autoComplete='email'
-                  placeholder='Email'
+                  type="text"
+                  name="email"
+                  id="email"
+                  autoComplete="email"
+                  placeholder="Email"
                   required
-                  className=' text-neutral block w-full shadow-sm focus:ring-success focus:border-success sm:text-sm border-gray-300 rounded-md'
+                  className=" text-neutral block w-full shadow-sm focus:ring-success focus:border-success sm:text-sm border-gray-300 rounded-md"
                   value={values.email}
                   onChange={handleChange}
                 />
               </div>
 
               <div>
-                <label htmlFor='password' className='sr-only'>
+                <label htmlFor="password" className="sr-only">
                   Password
                 </label>
                 <input
-                  id='password'
-                  name='password'
-                  type='password'
-                  placeholder='Password'
-                  autoComplete='current-password'
+                  id="password"
+                  name="password"
+                  type="password"
+                  placeholder="Password"
+                  autoComplete="current-password"
                   required
-                  className='text-neutral block w-full shadow-sm focus:ring-success focus:border-success sm:text-sm border-gray-300 rounded-md'
+                  className="text-neutral block w-full shadow-sm focus:ring-success focus:border-success sm:text-sm border-gray-300 rounded-md"
                   value={values.password}
                   onChange={handleChange}
                 />
@@ -160,22 +160,22 @@ export default function Register() {
 
               <div>
                 <button
-                  type='submit'
-                  className='w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium  bg-success hover:bg-success/70 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-success/90 '
+                  type="submit"
+                  className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium  bg-success hover:bg-success/70 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-success/90 "
                   disabled={isLoading}
                 >
-                  {values.isMember ? 'Login ' : 'Register'}
+                  {values.isMember ? "Login " : "Register"}
                 </button>
-                <p className='mt-4 text-neutral'>
+                <p className="mt-4 text-neutral">
                   {values.isMember
-                    ? 'Not a member yet? '
-                    : 'Already a member? '}
+                    ? "Not a member yet? "
+                    : "Already a member? "}
                   <button
-                    type='button'
+                    type="button"
                     onClick={toggleMember}
-                    className='text-accent hover:text-success'
+                    className="text-accent hover:text-success"
                   >
-                    {values.isMember ? 'Register' : 'Login '}
+                    {values.isMember ? "Register" : "Login "}
                   </button>
                 </p>
               </div>

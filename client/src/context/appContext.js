@@ -44,6 +44,7 @@ const initialState = {
   editJobId: "",
   languages: "",
   position: "",
+  href: "",
   company: "",
   jobLocation: "",
   jobTypeOptions: ["full-time", "part-time", "remote", "internship"],
@@ -178,11 +179,19 @@ const AppProvider = ({ children }) => {
   const createJob = async () => {
     dispatch({ type: CREATE_JOB_BEGIN });
     try {
-      const { position, company, jobLocation, jobType, languages, status } =
-        state;
+      const {
+        position,
+        company,
+        href,
+        jobLocation,
+        jobType,
+        languages,
+        status,
+      } = state;
       await authFetch.post("/jobs", {
         position,
         company,
+        href,
         jobLocation,
         jobType,
         languages,
@@ -232,11 +241,19 @@ const AppProvider = ({ children }) => {
     dispatch({ type: EDIT_JOB_BEGIN });
 
     try {
-      const { position, company, jobLocation, jobType, languages, status } =
-        state;
+      const {
+        position,
+        company,
+        href,
+        jobLocation,
+        jobType,
+        languages,
+        status,
+      } = state;
       await authFetch.patch(`/jobs/${state.editJobId}`, {
         company,
         position,
+        href,
         jobLocation,
         jobType,
         languages,

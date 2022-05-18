@@ -27,6 +27,11 @@ const JobSchema = new mongoose.Schema(
       default: "",
       required: false,
     },
+    href: {
+      type: String,
+      default: "",
+      required: false,
+    },
     jobLocation: {
       type: String,
       default: "",

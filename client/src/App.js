@@ -7,7 +7,7 @@ import { AllJobs, Layout, Stats, AddJob } from "./pages/dashboard";
 
 function App() {
   return (
-    <Theme dataTheme="winter" className="bg-base-300 mx-auto h-auto">
+    <Theme setTheme="dracula" className="bg-base-300 mx-auto h-full">
       <BrowserRouter>
         <Routes>
           <Route

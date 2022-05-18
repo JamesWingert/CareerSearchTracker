@@ -8,6 +8,7 @@ const AddJob = () => {
     displayAlert,
     position,
     company,
+    href,
     jobLocation,
     jobType,
     jobTypeOptions,
@@ -47,7 +48,7 @@ const AddJob = () => {
         </h1>
         {showAlert && <Alert />}
 
-        <div className="grid flex-col gap-2 text-neutral">
+        <div className="grid flex-col gap-2">
           {/* company */}
           <label htmlFor="company" className="text-xl">
             Company
@@ -58,6 +59,7 @@ const AddJob = () => {
             name="company"
             value={company}
             onChange={handleJobInput}
+            className="text-neutral"
           />
 
           {/* positionn */}
@@ -70,6 +72,7 @@ const AddJob = () => {
             name="position"
             value={position}
             onChange={handleJobInput}
+            className="text-neutral"
           />
           <label htmlFor="languages" className="text-xl">
             Technologies
@@ -80,6 +83,18 @@ const AddJob = () => {
             name="languages"
             value={languages}
             onChange={handleJobInput}
+            className="text-neutral"
+          />
+          <label htmlFor="languages" className="text-xl">
+            Job Link
+          </label>
+          <input
+            type="text"
+            id="href"
+            name="href"
+            value={href}
+            onChange={handleJobInput}
+            className="text-neutral"
           />
           {/* location */}
           <label htmlFor="location" className="text-xl">
@@ -91,12 +106,18 @@ const AddJob = () => {
             name="jobLocation"
             value={jobLocation}
             onChange={handleJobInput}
+            className="text-neutral"
           />
           {/* job status */}
           <label htmlFor="status" className="text-xl">
             Status
           </label>
-          <select name="status" value={status} onChange={handleJobInput}>
+          <select
+            name="status"
+            value={status}
+            className="text-neutral"
+            onChange={handleJobInput}
+          >
             {statusOptions.map((status, index) => {
               return (
                 <option key={index} value={status}>
@@ -109,7 +130,12 @@ const AddJob = () => {
           <label htmlFor="jobType" className="text-xl">
             Job Type
           </label>
-          <select name="jobType" value={jobType} onChange={handleJobInput}>
+          <select
+            name="jobType"
+            className="text-neutral"
+            value={jobType}
+            onChange={handleJobInput}
+          >
             {jobTypeOptions.map((jobType, index) => {
               return (
                 <option key={index} value={jobType}>
