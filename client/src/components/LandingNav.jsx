@@ -19,17 +19,17 @@ export default function LandingNav() {
         </div>{" "}
         <label className="swap swap-rotate ">
           <input className="hidden" type="checkbox" id="swap" />
-          {theme === "business" ? (
+          {theme === "dracula" ? (
             <FaSun
               onClick={() =>
-                setTheme(theme === "business" ? "winter" : "business")
+                setTheme(theme === "dracula" ? "winter" : "dracula")
               }
               className="text-accent dark:text-accent text-4xl cursor-pointer swap-on"
             />
           ) : (
             <FaMoon
               onClick={() =>
-                setTheme(theme === "business" ? "winter" : "business")
+                setTheme(theme === "dracula" ? "winter" : "dracula")
               }
               className="text-success text-4xl cursor-pointer swap-off"
             />
