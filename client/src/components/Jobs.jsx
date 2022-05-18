@@ -40,7 +40,7 @@ const Jobs = () => {
   let date = moment(createdAt);
   date = date.format("MMM Do, YYYY");
   return (
-    <div className=" bg-base-100 pb-10 ">
+    <div className=" bg-base-100 pb-10 h-fill">
       <h5 className="text-xl font-semibold text-success text-center mt-10 mb-4">
         {totalJobs} job{jobs.length > 1 && "s"} found
       </h5>

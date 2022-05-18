@@ -47,7 +47,7 @@ const AddJob = () => {
         </h1>
         {showAlert && <Alert />}
 
-        <div className="grid flex-col gap-2">
+        <div className="grid flex-col gap-2 text-neutral">
           {/* company */}
           <label htmlFor="company" className="text-xl">
             Company
