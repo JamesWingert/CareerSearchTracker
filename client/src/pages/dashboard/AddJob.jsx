@@ -3,7 +3,6 @@ import { useAppContext } from '../../context/appContext';
 
 const AddJob = () => {
   const {
-    isLoading,
     isEditing,
     showAlert,
     displayAlert,
@@ -34,19 +33,24 @@ const AddJob = () => {
     createJob();
   };
   const handleJobInput = (e) => {
+    const name = e.target.name;
     const value = e.target.value;
-    handleChange({ value });
+    handleChange({ name, value });
   };
 
   return (
-    <>
+    <div className='container mx-auto bg-base-100 h-[88.5vh] '>
       <form>
-        <h3>{isEditing ? 'edit job' : 'add job'}</h3>
+        <h1 className='text-center text-4xl mb-10 text-error'>
+          {isEditing ? 'Edit Job' : 'Add Job'}
+        </h1>
         {showAlert && <Alert />}
         <div>
           {/* position */}
           <input
             type='text'
+            id='position'
+            placeholder='Position'
             name='position'
             value={position}
             onChange={handleJobInput}
@@ -55,6 +59,7 @@ const AddJob = () => {
           <input
             type='text'
             name='company'
+            placeholder='Company'
             value={company}
             onChange={handleJobInput}
           />
@@ -64,13 +69,11 @@ const AddJob = () => {
             labelText='job location'
             name='jobLocation'
             value={jobLocation}
+            placeholder='Location'
             onChange={handleJobInput}
           />
-          {/* job status */}{' '}
-          <label htmlFor='status' className='form-label'>
-            status
-          </label>
-          <select name='status' value='status' onChange={handleJobInput}>
+          {/* job status */} <label htmlFor='status'>Status</label>
+          <select name='status' value={status} onChange={handleJobInput}>
             {statusOptions.map((status, index) => {
               return (
                 <option key={index} value={status}>
@@ -79,31 +82,22 @@ const AddJob = () => {
               );
             })}
           </select>
-          {/* job type */}{' '}
-          <label htmlFor='jobType' className='form-label'>
-            Job Type
-          </label>
-          <select
-            name='jobType'
-            labelText='job type'
-            value='jobType'
-            handleChange={handleJobInput}
-          >
-            {jobTypeOptions.map((itemValue, index) => {
+          {/* job type */} <label htmlFor='jobType'>Job Type</label>
+          <select name='jobType' value={jobType} onChange={handleJobInput}>
+            {jobTypeOptions.map((jobType, index) => {
               return (
-                <option key={index} value={itemValue}>
-                  {itemValue}
+                <option key={index} value={jobType}>
+                  {jobType}
                 </option>
               );
             })}
           </select>
           {/* btn container */}
-          <div className='btn-container'>
+          <div className='btn'>
             <button
               type='submit'
               className='btn btn-block submit-btn'
               onClick={handleSubmit}
-              disabled={isLoading}
             >
               submit
             </button>
@@ -119,7 +113,7 @@ const AddJob = () => {
           </div>
         </div>
       </form>
-    </>
+    </div>
   );
 };
 

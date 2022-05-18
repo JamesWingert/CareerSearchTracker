@@ -2,7 +2,7 @@ import Job from '../models/Job.js';
 import { StatusCodes } from 'http-status-codes';
 import mongoose from 'mongoose';
 import moment from 'moment';
-
+import checkPermissions from '../utils/checkPermissions.js';
 //new job
 const createJob = async (req, res) => {
   const { position, company } = req.body;
@@ -97,9 +97,7 @@ const deleteJob = async (req, res) => {
   }
 
   //check permissions
-  if (!req.user === !job.createdBy.toString()) {
-    res.status(404).send('Not Authorized');
-  }
+  checkPermissions(req.user, job.createdBy);
 
   await job.remove();
 
@@ -108,14 +106,13 @@ const deleteJob = async (req, res) => {
 
 //show job application statsitics
 const showStats = async (req, res) => {
-
   //show jobs created by user and group them by status
   let stats = await Job.aggregate([
     { $match: { createdBy: mongoose.Types.ObjectId(req.user.userId) } },
     { $group: { _id: '$status', count: { $sum: 1 } } },
   ]);
 
-  //reduce the result to an object, the key is the jobs status and the value is the number of jobs with that status. 
+  //reduce the result to an object, the key is the jobs status and the value is the number of jobs with that status.
   stats = stats.reduce((acc, curr) => {
     const { _id: title, count } = curr;
     acc[title] = count;

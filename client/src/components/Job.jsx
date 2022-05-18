@@ -44,7 +44,7 @@ const Job = ({
             </Link>
             <button
               type='button'
-              className='btn delete-btn'
+              className='btn'
               onClick={() => deleteJob(_id)}
             >
               Delete

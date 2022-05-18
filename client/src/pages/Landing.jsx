@@ -3,7 +3,7 @@ import Register from '../components/Register';
 
 export default function Landing() {
   return (
-    <div className="container mx-auto bg-base-100 pt-8 pb-20  h-fill">
+    <div className="container mx-auto bg-base-100 pt-8 pb-20  h-screen">
       <LandingNav />
       <div className="px-4 sm:px-6 sm:text-center md:max-w-6xl md:mx-auto lg:col-span-6 lg:text-left lg:flex lg:items-center mt-32">
         <div className="lg:grid lg:grid-cols-12 lg:gap-8 items-center justify-center">

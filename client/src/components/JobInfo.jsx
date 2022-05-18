@@ -1,9 +1,9 @@
 const JobInfo = ({ icon, text }) => {
   return (
-    <>
-      <span className='icon'>{icon}</span>
-      <span className='text'>{text}</span>
-    </>
+    <div className="flex">
+      <span className=''>{icon}</span>
+      <span className=''>{text}</span>
+    </div>
   );
 };
 

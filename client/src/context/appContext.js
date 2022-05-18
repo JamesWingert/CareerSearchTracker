@@ -169,8 +169,8 @@ const AppProvider = ({ children }) => {
     clearAlert();
   };
 
-  const handleChange = ({ id, value }) => {
-    dispatch({ type: HANDLE_CHANGE, payload: { id, value } });
+  const handleChange = ({ name, value }) => {
+    dispatch({ type: HANDLE_CHANGE, payload: { name, value } });
   };
   const clearValues = () => {
     dispatch({ type: CLEAR_VALUES });
@@ -259,7 +259,7 @@ const AppProvider = ({ children }) => {
       await authFetch.delete(`/jobs/${jobId}`);
       getJobs();
     } catch (error) {
-      logoutUser();
+      console.log(error);
     }
   };
   const showStats = async () => {

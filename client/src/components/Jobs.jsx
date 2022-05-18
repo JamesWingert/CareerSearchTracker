@@ -36,10 +36,10 @@ const Jobs = () => {
 
   return (
     <>
-      <h5>
+      <h5 className='text-xl font-semibold text-success'>
         {totalJobs} job{jobs.length > 1 && 's'} found
       </h5>
-      <div className='jobs'>
+      <div className='flex-col'>
         {jobs.map((job) => {
           return <Job key={job._id} {...job} />;
         })}

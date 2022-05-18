@@ -1,6 +1,7 @@
 import User from '../models/User.js';
 import { StatusCodes } from 'http-status-codes';
 
+
 const register = async (req, res) => {
   const { email, password } = req.body;
 
@@ -22,21 +23,21 @@ const register = async (req, res) => {
   });
 };
 
-
 const login = async (req, res) => {
   const { email, password } = req.body;
   if (!email || !password) {
-    res.status(400).send("All input is required");
+    res.status(400).send('All input is required');
   }
+
   const user = await User.findOne({ email }).select('+password');
   const isPasswordCorrect = await user.comparePassword(password);
   if (!email || !isPasswordCorrect) {
-    return res.status(400).send("Invalid Credentials");
+    return res.status(400).send('Invalid Credentials');
   }
+
   const token = user.createJWT();
   user.password = undefined;
   res.status(StatusCodes.OK).json({ user, token });
 };
 
-
-export { register, login};
+export { register, login };

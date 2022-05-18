@@ -1,14 +1,15 @@
 import { useAppContext } from '../../context/appContext';
 import Jobs from '../../components/Jobs';
+
 const AllJobs = () => {
   const {
     isLoading,
     search,
     searchStatus,
-    searchType,
-    sort,
     sortOptions,
     handleChange,
+    searchType,
+    sort,
     clearFilters,
     jobTypeOptions,
     statusOptions,
@@ -22,21 +23,22 @@ const AllJobs = () => {
     clearFilters();
   };
   return (
-    <>
-      <form>
-        <h4>Search</h4>
-        <div>
+    <div className='container mx-auto bg-base-100 h-[88.5vh] '>
+      <form className='mb-4 '>
+        <h1 className='text-center text-4xl mb-10 text-error'>Search</h1>
+        <div className=' space-y-4'>
           <input
             type='text'
+            id='search'
+            placeholder='Search Term'
             name='search'
             value={search}
             onChange={handleSearch}
           />
           {/* search by status */}
           <select
-            labelText='status'
             name='searchStatus'
-            value='searchStatus'
+            value={searchStatus}
             onChange={handleSearch}
           >
             {['all', ...statusOptions].map((itemValue, index) => {
@@ -49,9 +51,8 @@ const AllJobs = () => {
           </select>
           {/* search by type */}
           <select
-            labelText='type'
             name='searchType'
-            value='searchType'
+            value={searchType}
             onChange={handleSearch}
           >
             {['all', ...jobTypeOptions].map((itemValue, index) => {
@@ -63,7 +64,7 @@ const AllJobs = () => {
             })}
           </select>
           {/* sort */}
-          <select name='sort' value='sort' onChange={handleSearch}>
+          <select name='sort' value={sort} onChange={handleSearch}>
             {sortOptions.map((itemValue, index) => {
               return (
                 <option key={index} value={itemValue}>
@@ -72,13 +73,13 @@ const AllJobs = () => {
               );
             })}
           </select>
-          <button className='btn' disabled={isLoading} onClick={handleSubmit}>
+          <button className='btn' onClick={handleSubmit}>
             clear filters
           </button>
         </div>
       </form>
       <Jobs />
-    </>
+    </div>
   );
 };
 

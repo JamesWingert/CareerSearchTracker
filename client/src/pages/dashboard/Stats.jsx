@@ -37,13 +37,21 @@ const Stats = () => {
     );
   }
   return (
-    <div>
+    <div className='container mx-auto bg-base-100 flex-col  w-full h-[88.5vh]'>
+      {' '}
+      <h1 className='text-center text-4xl mb-10 text-error'>
+        Application Statistics
+      </h1>
       {defaultStats.map((item, index) => {
         return (
           <header key={index}>
-            <h5 className='title'>{item.title}</h5>
-            <span className='count'>{item.count}</span>
-            <span className='icon'>{item.icon}</span>
+            <h5 className=' flex items-center text-center justify-center '>
+              <div className='mr-2 text-warning'>{item.icon}</div>
+              {item.title}
+            </h5>
+            <span className='flex items-center text-center justify-center text-error'>
+              {item.count}
+            </span>
           </header>
         );
       })}
