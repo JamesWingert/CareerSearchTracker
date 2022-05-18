@@ -135,7 +135,7 @@ export default function Register() {
                   autoComplete='email'
                   placeholder='Email'
                   required
-                  className='block w-full shadow-sm focus:ring-success focus:border-success sm:text-sm border-gray-300 rounded-md'
+                  className=' text-neutral block w-full shadow-sm focus:ring-success focus:border-success sm:text-sm border-gray-300 rounded-md'
                   value={values.email}
                   onChange={handleChange}
                 />
