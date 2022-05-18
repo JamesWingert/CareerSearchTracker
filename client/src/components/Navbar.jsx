@@ -43,18 +43,14 @@ export default function Navbar() {
                       {theme === "dracula" ? (
                         <FaSun
                           onClick={() =>
-                            setTheme(
-                              theme === "dracula" ? "winter" : "dracula"
-                            )
+                            setTheme(theme === "dracula" ? "winter" : "dracula")
                           }
                           className="text-accent dark:text-accent text-4xl cursor-pointer swap-on"
                         />
                       ) : (
                         <FaMoon
                           onClick={() =>
-                            setTheme(
-                              theme === "dracula" ? "winter" : "dracula"
-                            )
+                            setTheme(theme === "dracula" ? "winter" : "dracula")
                           }
                           className="text-success text-3xl cursor-pointer swap-off"
                         />
