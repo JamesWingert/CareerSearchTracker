@@ -1,20 +1,16 @@
-import Alert from './Alert';
-import Jobs from './Jobs';
-import JobInfo from './JobInfo';
-import Loading from './Loading';
-import Footer from './Footer';
-import Navbar from './Navbar';
-import LandingNav from './LandingNav';
-import PageBtnContainer from './PageBtnContainer';
-import Register from './Register';
+import Alert from "./Alert";
+import Jobs from "./Jobs";
+import Loading from "./Loading";
+import Navbar from "./Navbar";
+import LandingNav from "./LandingNav";
+import PageButton from "./PageButton";
+import Register from "./Register";
 export {
-  Footer,
   Navbar,
   Jobs,
-  JobInfo,
   Alert,
   Loading,
   LandingNav,
-  PageBtnContainer,
+  PageButton,
   Register,
 };

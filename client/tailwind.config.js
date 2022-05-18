@@ -20,8 +20,8 @@ module.exports = {
           // success: '#538e65',
           // 'neutral-content': '#dc6972',
         },
-        business: {
-          ...require("daisyui/src/colors/themes")["[data-theme=business]"],
+        dracula: {
+          ...require("daisyui/src/colors/themes")["[data-theme=dracula]"],
           // neutral: '#eeeeee',
           // ,
           // success: '#7BC284',

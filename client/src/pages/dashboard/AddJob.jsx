@@ -16,13 +16,14 @@ const AddJob = () => {
     handleChange,
     clearValues,
     createJob,
+    languages,
     editJob,
   } = useAppContext();
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (!position || !company || !jobLocation) {
+    if (!position || !company) {
       displayAlert();
       return;
     }
@@ -39,40 +40,61 @@ const AddJob = () => {
   };
 
   return (
-    <div className="container mx-auto bg-base-100 h-[88.5vh] ">
-      <form>
+    <div className="container mx-auto bg-base-100 pb-10 ">
+      <form className="max-w-md justify-center mx-auto bg-base-300 rounded-3xl shadow-lg p-10">
         <h1 className="text-center text-4xl mb-10 text-error">
-          {isEditing ? "Edit Job" : "Add Job"}
+          {isEditing ? "Edit Job" : "Add A Job"}
         </h1>
         {showAlert && <Alert />}
-        <div>
+
+        <div className="grid flex-col gap-2">
+          {/* company */}
+          <label htmlFor="company" className="text-xl">
+            Company
+          </label>
+          <input
+            type="text"
+            id="company"
+            name="company"
+            value={company}
+            onChange={handleJobInput}
+          />
           {/* position */}
+          <label htmlFor="position" className="text-xl">
+            Position
+          </label>
           <input
             type="text"
             id="position"
-            placeholder="Position"
             name="position"
             value={position}
             onChange={handleJobInput}
           />
-          {/* company */}
+          <label htmlFor="languages" className="text-xl">
+            Technologies
+          </label>
           <input
             type="text"
-            name="company"
-            placeholder="Company"
-            value={company}
+            id="languages"
+            name="languages"
+            value={languages}
             onChange={handleJobInput}
           />
           {/* location */}
+          <label htmlFor="location" className="text-xl">
+            Location
+          </label>
           <input
             type="text"
-            labelText="job location"
+            labeltext="job location"
             name="jobLocation"
             value={jobLocation}
-            placeholder="Location"
             onChange={handleJobInput}
           />
-          {/* job status */} <label htmlFor="status">Status</label>
+          {/* job status */}
+          <label htmlFor="status" className="text-xl">
+            Status
+          </label>
           <select name="status" value={status} onChange={handleJobInput}>
             {statusOptions.map((status, index) => {
               return (
@@ -82,7 +104,10 @@ const AddJob = () => {
               );
             })}
           </select>
-          {/* job type */} <label htmlFor="jobType">Job Type</label>
+          {/* job type */}
+          <label htmlFor="jobType" className="text-xl">
+            Job Type
+          </label>
           <select name="jobType" value={jobType} onChange={handleJobInput}>
             {jobTypeOptions.map((jobType, index) => {
               return (
@@ -93,22 +118,22 @@ const AddJob = () => {
             })}
           </select>
           {/* btn container */}
-          <div className="btn">
+          <div className="justify-end gap-4 flex mt-10">
             <button
-              type="submit"
-              className="btn btn-block submit-btn"
-              onClick={handleSubmit}
-            >
-              submit
-            </button>
-            <button
-              className="btn"
+              className="btn text-error bg-base-100 hover:bg-base-300"
               onClick={(e) => {
                 e.preventDefault();
                 clearValues();
               }}
             >
               clear
+            </button>
+            <button
+              type="submit"
+              className="btn bg-success text-neutral hover:bg-success/60"
+              onClick={handleSubmit}
+            >
+              submit
             </button>
           </div>
         </div>

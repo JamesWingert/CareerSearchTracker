@@ -30,7 +30,7 @@ const JobSchema = new mongoose.Schema(
     jobLocation: {
       type: String,
       default: "",
-      required: true,
+      required: false,
     },
     createdBy: {
       type: mongoose.Types.ObjectId,

@@ -1,7 +1,7 @@
 import { useAppContext } from "../context/appContext";
 import { HiChevronDoubleLeft, HiChevronDoubleRight } from "react-icons/hi";
 
-const PageBtnContainer = () => {
+const PageButton = () => {
   const { numOfPages, page, changePage } = useAppContext();
 
   const pages = Array.from({ length: numOfPages }, (_, index) => {
@@ -49,4 +49,4 @@ const PageBtnContainer = () => {
   );
 };
 
-export default PageBtnContainer;
+export default PageButton;
