@@ -3,14 +3,12 @@ import { HiMenu, HiX } from "react-icons/hi";
 import { IoBarChartSharp } from "react-icons/io5";
 import { MdQueryStats } from "react-icons/md";
 import { FaWpforms } from "react-icons/fa";
-import { useEffect } from "react";
 import { Fragment } from "react";
-import { FaSun, FaMoon } from "react-icons/fa";
-import { useTheme } from "react-daisyui";
 import logo from "../assets/images/logo.png";
 import { useAppContext } from "../context/appContext";
 
 import React from "react";
+
 const navigation = [
   { id: 1, name: "Stats", path: "/", icon: <IoBarChartSharp /> },
   { id: 2, name: "All Jobs", path: "/all-jobs", icon: <MdQueryStats /> },
@@ -18,12 +16,8 @@ const navigation = [
 ];
 
 export default function Navbar() {
-  const { theme, setTheme } = useTheme("");
-
   const { logoutUser } = useAppContext();
-  useEffect(() => {
-    setTheme("dracula");
-  }, []);
+
   return (
     <div>
       <div className="container mx-auto bg-base-100 ">
@@ -39,26 +33,7 @@ export default function Navbar() {
                     <span className="sr-only">Home</span>
                     <img className="h-8 w-auto sm:h-10" src={logo} alt="" />
                   </a>{" "}
-                  <div className="justify-center items-center flex text-center ml-8">
-                    <label className="swap swap-rotate ">
-                      <input className="hidden" type="checkbox" id="swap" />
-                      {theme === "dracula" ? (
-                        <FaSun
-                          onClick={() =>
-                            setTheme(theme === "dracula" ? "winter" : "dracula")
-                          }
-                          className="text-accent dark:text-accent text-4xl cursor-pointer swap-off"
-                        />
-                      ) : (
-                        <FaMoon
-                          onClick={() =>
-                            setTheme(theme === "dracula" ? "winter" : "dracula")
-                          }
-                          className="text-success text-3xl cursor-pointer swap-on"
-                        />
-                      )}
-                    </label>
-                  </div>
+                  <div className="justify-center items-center flex text-center ml-8"></div>
                   <div className="-mr-2 flex items-center lg:hidden">
                     {" "}
                     <Popover.Button className="bg-base-100 rounded-md p-1 inline-flex items-center justify-center  hover:ring-2 hover:ring-error focus:outline-none focus:ring-2 focus-ring-inset focus:ring-white">
@@ -67,12 +42,12 @@ export default function Navbar() {
                     </Popover.Button>
                   </div>
                 </div>
-                <div className="hidden lg:space-x-10 lg:flex lg:relative  ">
+                <div className="hidden lg:space-x-10 lg:flex lg:relative  hover:text-primary">
                   {navigation.map((item) => (
                     <a
                       key={item.id}
                       href={item.path}
-                      className="font-medium flex items-center"
+                      className="font-medium flex items-center hover:text-secondary "
                     >
                       <span className="mr-2">{item.icon}</span>
                       {item.name}

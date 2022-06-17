@@ -23,7 +23,7 @@ const AllJobs = () => {
     clearFilters();
   };
   return (
-    <div className="container mx-auto bg-base-100 h-screen">
+    <div className="container mx-auto bg-base-100 ">
       <div className="flex-col max-w-lg mx-auto bg-base-300 rounded-3xl shadow-lg p-10">
         <form>
           <h1 className="text-center text-4xl mb-10 text-error ">All Jobs</h1>

@@ -8,10 +8,6 @@ module.exports = {
     styled: true,
     themes: [
       {
-        winter: {
-          ...require("daisyui/src/colors/themes")["[data-theme=winter]"],
-          warning: "#548CA8",
-        },
         dracula: {
           ...require("daisyui/src/colors/themes")["[data-theme=dracula]"],
           primary: "#f6f8fa",
@@ -24,6 +20,5 @@ module.exports = {
     logs: true,
     rtl: false,
     prefix: "",
-    darkTheme: "dracula",
   },
 };

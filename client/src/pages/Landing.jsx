@@ -5,7 +5,7 @@ export default function Landing() {
     <>
       <div className="container mx-auto bg-base-100 pt-8 pb-20  h-screen">
         <LandingNav />
-        <div className="px-4 sm:px-6 sm:text-center md:max-w-6xl md:mx-auto lg:col-span-6 lg:text-left lg:flex lg:items-center mt-32">
+        <div className="bg-base-300 rounded-xl shadow-xl ring-2 ring-base-100 ring-inset p-6 sm:p-8 sm:text-center md:max-w-6xl md:mx-auto lg:col-span-6 lg:text-left lg:flex lg:items-center mt-32">
           <div className="lg:grid lg:grid-cols-12 lg:gap-8 items-center justify-center">
             <div className="px-4 sm:px-6 sm:text-center md:max-w-2xl md:mx-auto lg:col-span-6 lg:text-left lg:flex ">
               <div>

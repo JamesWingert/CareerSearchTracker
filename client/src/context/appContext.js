@@ -29,7 +29,6 @@ import {
   CLEAR_FILTERS,
   CHANGE_PAGE,
 } from "./actions";
-
 const token = localStorage.getItem("token");
 const user = localStorage.getItem("user");
 

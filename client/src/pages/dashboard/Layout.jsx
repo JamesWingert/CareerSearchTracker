@@ -2,7 +2,7 @@ import { Outlet } from "react-router-dom";
 import Navbar from "../../components/Navbar";
 const Layout = () => {
   return (
-    <div className=" bg-base-300">
+    <div className="h-full bg-base-300">
       <main>
         <div>
           <Navbar />
