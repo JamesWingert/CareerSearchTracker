@@ -27,12 +27,12 @@ const PageButton = () => {
         <HiChevronDoubleLeft />
         prev
       </button>
-      <div className="btn-container">
+      <div className="space-x-2">
         {pages.map((pageNumber) => {
           return (
             <button
               type="button"
-              className={pageNumber === page ? "btn-outline" : "btn"}
+              className={pageNumber === page ? "btn-outline" : "btn-outline"}
               key={pageNumber}
               onClick={() => changePage(pageNumber)}
             >
