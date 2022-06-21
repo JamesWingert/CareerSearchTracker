@@ -158,9 +158,9 @@ const Jobs = () => {
                   </tbody>
                 );
               })}
+          {numOfPages > 1 && <PageButton />}
             </table>
           </div>
-          {numOfPages > 1 && <PageButton />}
         </div>
       </div>
     </div>
