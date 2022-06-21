@@ -159,7 +159,7 @@ const Jobs = () => {
               })}
             </table>
           </div>
-          <div className='flex justify-center'>
+          <div className='flex justify-center space-x-6'>
             {numOfPages > 1 && <PageButton />}
           </div>
         </div>
