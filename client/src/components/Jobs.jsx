@@ -134,7 +134,7 @@ const Jobs = () => {
                         {job.status}
                       </td>
                       <td className='px-6 py-4  text-sm text-neutral'>
-                        {date}
+                        {createdAt}
                       </td>
                       <td className='px-6 py-4  text-right text-sm font-medium'>
                         <Link
