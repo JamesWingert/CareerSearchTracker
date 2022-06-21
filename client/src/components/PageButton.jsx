@@ -32,7 +32,7 @@ const PageButton = () => {
           return (
             <button
               type="button"
-              className={pageNumber === page ? "btn-outline" : "btn-outline"}
+              className={pageNumber === page ? "btn h-10 w-4" : "btn-outline"}
               key={pageNumber}
               onClick={() => changePage(pageNumber)}
             >
