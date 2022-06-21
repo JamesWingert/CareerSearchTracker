@@ -33,8 +33,9 @@ const Jobs = () => {
   if (jobs.length === 0) {
     return <h2>No jobs to display...</h2>;
   }
-  let date = createdAt.toDateString();
-
+  // let date = createdAt.toDateString();
+  let date = jobs.createdAt.toDateString();
+  console.log(jobs.createdAt);
   return (
     <div className=' bg-base-100 pb-10 h-fill'>
       <h5 className='text-xl font-semibold text-success text-center mt-10 mb-4'>
