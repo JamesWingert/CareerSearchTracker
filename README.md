@@ -4,11 +4,15 @@ A website that can be used to track your progress as you search for jobs.
 
 MERN stack with TailwindCSS deployed on Heroku.
 Custom built authentication for email/password.
-![image info](client/src/assets/front.png)
-![image info](client/src/assets/stats.png)
-![image info](client/src/assets/tabletop.png)
-![image info](client/src/assets/table.png)
-![image info](client/src/assets/add.png)
+<img src="client/src/assets/front.png" alt="alt text" width="200" height="200"/>
+<br/>
+<img src="client/src/assets/stats.png" alt="alt text" width="200" height="200"/>
+<br/>
+<img src="client/src/assets/tabletop.png" alt="alt text" width="200" height="200"/>
+<br/>
+<img src="client/src/assets/table.png" alt="alt text" width="200" height="200"/>
+<br/>
+<img src="client/src/assets/add.png" alt="alt text" width="200" height="200"/>
 
 
 
