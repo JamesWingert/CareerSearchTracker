@@ -62,7 +62,7 @@ const AddJob = () => {
             className="text-neutral"
           />
 
-          {/* positionn */}
+          {/* position */}
           <label htmlFor="position" className="text-xl">
             Position
           </label>

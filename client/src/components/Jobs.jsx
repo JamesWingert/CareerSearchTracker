@@ -33,8 +33,8 @@ const Jobs = () => {
   if (jobs.length === 0) {
     return <h2>No jobs to display...</h2>;
   }
-  let date = moment(createdAt);
-  date = date.format('MMM Do, YYYY');
+  let date = moment(createdAt).format('MMMM Do YYYY');
+  // date = date.format('MMM Do, YYYY');
   return (
     <div className=' bg-base-100 pb-10 h-fill'>
       <h5 className='text-xl font-semibold text-success text-center mt-10 mb-4'>
@@ -135,7 +135,7 @@ const Jobs = () => {
                         {job.status}
                       </td>
                       <td className='px-6 py-4  text-sm text-neutral'>
-                        {date}
+                        {job.date}
                       </td>
                       <td className='px-6 py-4  text-right text-sm font-medium'>
                         <Link
@@ -160,10 +160,10 @@ const Jobs = () => {
               })}
             </table>
           </div>
+      {numOfPages > 1 && <PageButton />}
         </div>
       </div>
 
-      {numOfPages > 1 && <PageButton />}
     </div>
   );
 };

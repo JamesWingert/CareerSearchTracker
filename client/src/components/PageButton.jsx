@@ -23,7 +23,7 @@ const PageButton = () => {
   };
   return (
     <>
-      <button className="prev-btn" onClick={prevPage}>
+      <button className="btn" onClick={prevPage}>
         <HiChevronDoubleLeft />
         prev
       </button>
@@ -32,7 +32,7 @@ const PageButton = () => {
           return (
             <button
               type="button"
-              className={pageNumber === page ? "pageBtn active" : "pageBtn"}
+              className={pageNumber === page ? "btn" : "btn"}
               key={pageNumber}
               onClick={() => changePage(pageNumber)}
             >
@@ -41,7 +41,7 @@ const PageButton = () => {
           );
         })}
       </div>
-      <button className="next-btn" onClick={nextPage}>
+      <button className="btn" onClick={nextPage}>
         next
         <HiChevronDoubleRight />
       </button>
