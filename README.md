@@ -12,7 +12,7 @@ Custom built authentication for email/password.
 <br/>
 <img src="client/src/assets/table.png" alt="alt text" width="700" height="400"/>
 <br/>
-<img src="client/src/assets/add.png" alt="alt text" width="700" height="400"/>
+<img src="client/src/assets/add.png" alt="alt text" width="700" height="900"/>
 
 
 
