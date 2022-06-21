@@ -5,9 +5,6 @@ import {
   SETUP_USER_SUCCESS,
   SETUP_USER_ERROR,
   LOGOUT_USER,
-  UPDATE_USER_BEGIN,
-  UPDATE_USER_SUCCESS,
-  UPDATE_USER_ERROR,
   HANDLE_CHANGE,
   CLEAR_VALUES,
   CREATE_JOB_BEGIN,
@@ -24,25 +21,25 @@ import {
   SHOW_STATS_SUCCESS,
   CLEAR_FILTERS,
   CHANGE_PAGE,
-} from "./actions";
+} from './actions';
 
-import { initialState } from "./appContext";
+import { initialState } from './appContext';
 
 const reducer = (state, action) => {
   if (action.type === DISPLAY_ALERT) {
     return {
       ...state,
       showAlert: true,
-      alertType: "danger",
-      alertText: "Please provide all values!",
+      alertType: 'danger',
+      alertText: 'Please provide all values!',
     };
   }
   if (action.type === CLEAR_ALERT) {
     return {
       ...state,
       showAlert: false,
-      alertType: "",
-      alertText: "",
+      alertType: '',
+      alertText: '',
     };
   }
 
@@ -57,7 +54,7 @@ const reducer = (state, action) => {
       user: action.payload.user,
       jobLocation: action.payload.location,
       showAlert: true,
-      alertType: "success",
+      alertType: 'success',
       alertText: action.payload.alertText,
     };
   }
@@ -66,7 +63,7 @@ const reducer = (state, action) => {
       ...state,
       isLoading: false,
       showAlert: true,
-      alertType: "danger",
+      alertType: 'danger',
       alertText: action.payload.msg,
     };
   }
@@ -76,33 +73,10 @@ const reducer = (state, action) => {
       ...initialState,
       user: null,
       token: null,
-      jobLocation: "",
+      jobLocation: '',
     };
   }
-  if (action.type === UPDATE_USER_BEGIN) {
-    return { ...state, isLoading: true };
-  }
-  if (action.type === UPDATE_USER_SUCCESS) {
-    return {
-      ...state,
-      isLoading: false,
-      token: action.payload.token,
-      user: action.payload.user,
-      jobLocation: action.payload.location,
-      showAlert: true,
-      alertType: "success",
-      alertText: "User Profile Updated!",
-    };
-  }
-  if (action.type === UPDATE_USER_ERROR) {
-    return {
-      ...state,
-      isLoading: false,
-      showAlert: true,
-      alertType: "danger",
-      alertText: action.payload.msg,
-    };
-  }
+
   if (action.type === HANDLE_CHANGE) {
     return {
       ...state,
@@ -113,14 +87,14 @@ const reducer = (state, action) => {
   if (action.type === CLEAR_VALUES) {
     const initialState = {
       isEditing: false,
-      editJobId: "",
-      position: "",
-      company: "",
-      href: "",
-      languages: "",
-      jobLocation: "",
-      jobType: "full-time",
-      status: "pending",
+      editJobId: '',
+      position: '',
+      company: '',
+      href: '',
+      languages: '',
+      jobLocation: '',
+      jobType: 'full-time',
+      status: 'pending',
     };
 
     return {
@@ -137,8 +111,8 @@ const reducer = (state, action) => {
       ...state,
       isLoading: false,
       showAlert: true,
-      alertType: "success",
-      alertText: "New Job Created!",
+      alertType: 'success',
+      alertText: 'New Job Created!',
     };
   }
   if (action.type === CREATE_JOB_ERROR) {
@@ -146,7 +120,7 @@ const reducer = (state, action) => {
       ...state,
       isLoading: false,
       showAlert: true,
-      alertType: "danger",
+      alertType: 'danger',
       alertText: action.payload.msg,
     };
   }
@@ -201,8 +175,8 @@ const reducer = (state, action) => {
       ...state,
       isLoading: false,
       showAlert: true,
-      alertType: "success",
-      alertText: "Job Updated!",
+      alertType: 'success',
+      alertText: 'Job Updated!',
     };
   }
   if (action.type === EDIT_JOB_ERROR) {
@@ -210,7 +184,7 @@ const reducer = (state, action) => {
       ...state,
       isLoading: false,
       showAlert: true,
-      alertType: "danger",
+      alertType: 'danger',
       alertText: action.payload.msg,
     };
   }
@@ -232,10 +206,10 @@ const reducer = (state, action) => {
   if (action.type === CLEAR_FILTERS) {
     return {
       ...state,
-      search: "",
-      searchStatus: "all",
-      searchType: "all",
-      sort: "latest",
+      search: '',
+      searchStatus: 'all',
+      searchType: 'all',
+      sort: 'latest',
     };
   }
   if (action.type === CHANGE_PAGE) {
