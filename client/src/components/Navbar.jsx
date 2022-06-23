@@ -28,13 +28,16 @@ export default function Navbar() {
               className=' max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-6'
               aria-label='Global'
             >
+              {' '}
               <div className='flex items-center flex-1 justify-between'>
                 <div className='flex items-center justify-between w-full lg:w-auto'>
                   <a href='/'>
                     <span className='sr-only'>Home</span>
                     <img className='h-8 w-auto sm:h-10' src={logo} alt='' />
                   </a>{' '}
-                  <div className='justify-center items-center flex text-center ml-8'></div>
+                  <div className='justify-center items-center flex text-center lg:hidden'>
+                    <ThemeSwitcherButton />
+                  </div>
                   <div className='-mr-2 flex items-center lg:hidden'>
                     {' '}
                     <Popover.Button className='bg-base-100 rounded-md p-1 inline-flex items-center justify-center  hover:ring-2 hover:ring-error focus:outline-none focus:ring-2 focus-ring-inset focus:ring-white'>
@@ -43,30 +46,29 @@ export default function Navbar() {
                     </Popover.Button>
                   </div>
                 </div>
-                <div className='hidden lg:space-x-10 lg:flex lg:relative  hover:text-primary'>
+                <div className='hidden lg:space-x-10 lg:flex lg:relative  -mr-20'>
                   {navigation.map((item) => (
                     <a
                       key={item.id}
                       href={item.path}
-                      className='font-medium flex items-center hover:text-secondary '
+                      className='font-medium flex items-center hover:text-primary'
                     >
                       <span className='mr-2'>{item.icon}</span>
                       {item.name}
                     </a>
                   ))}
                 </div>{' '}
-                <div className='-mr-2 flex items-center'>
+                <div className='hidden lg:flex items-center space-x-8'>
                   <ThemeSwitcherButton />
-                </div>
-                <div className='hidden lg:flex'>
-                  <button
-                    href='/logout'
-                    className='inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md  bg-success text-base-100 hover:bg-transparent hover:text-success hover:border-success btn '
-                    onClick={logoutUser}
-                  >
-                    Log Out
-                  </button>
-                </div>
+
+                    <button
+                      href='/logout'
+                      className='inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md  bg-success text-base-100 hover:bg-transparent hover:text-success hover:border-success btn  '
+                      onClick={logoutUser}
+                    >
+                      Log Out
+                    </button>
+                  </div>
               </div>
             </nav>
 

@@ -13,9 +13,9 @@ export default function LandingNav() {
             <a href='/'>
               <img src={logo} alt='logo' className='h-12 w-auto sm:h-16' />
             </a>
-            <ThemeSwitcherButton />
           </div>
         </div>
+            <ThemeSwitcherButton />
       </nav>
     </>
   );
