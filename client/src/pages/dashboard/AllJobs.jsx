@@ -28,13 +28,14 @@ const AllJobs = () => {
         <form>
           <h1 className='text-center text-4xl mb-10 text-error '>All Jobs</h1>
           <div className='grid mx-12 space-y-4 '>
-            <h3 className='text-neutral-content'>Search Companies</h3>
+            <h3>Search Companies</h3>
             <input
               type='text'
               id='search'
               name='search'
               value={search}
               onChange={handleSearch}
+              className='text-neutral'
             />
             {/* search by status */}
             <h3>Application Status</h3>
